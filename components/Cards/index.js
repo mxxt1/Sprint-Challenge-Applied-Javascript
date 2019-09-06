@@ -18,51 +18,47 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-let articles = [];
-let bootstrap = [];
-let javascript = [];
-let jquery = [];
-let node = [];
-let technology = [];
-let topicArray = [];
+// let articles = [];
+// let bootstrap = [];
+// let javascript = [];
+// let jquery = [];
+// let node = [];
+// let technology = [];
+// let topicArray = [];
 
 
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(response =>{
-    console.log(response.data.articles);
+    console.log(Object.values(response.data.articles));
     articles = response.data.articles;
     console.log(articles);
 
-
+    //try for in, pull all articles from data.articles[i];
     // articles.forEach(item =>{
     //     topicArray.push(item);
     // })
     // console.log(topicArray);
     // articles = Array.from(response.data.articles);
-    // console.log(articles);
+    // console.log(articles); 
     // for (let i=0;i<articles.length;i++){
     //     console.log(articles[i]);
     //     topicArray.push(articles[i]);
     //   }
     //   console.log(topicArray);
     //   return topicArray;
-      
-})
-.then(response =>{
-    bootstrap = Array.from(articles.bootstrap);
+
+    const bootstrap = Array.from(articles.bootstrap);
     console.log(bootstrap);
-    javascript = Array.from(articles.javascript);
+    const javascript = Array.from(articles.javascript);
     console.log(javascript);
-    jquery = Array.from(articles.jquery);
+    const jquery = Array.from(articles.jquery);
     console.log(jquery);
-    node = Array.from(articles.node);
+    const node = Array.from(articles.node);
     console.log(node);
-    technology = Array.from(articles.technology);
+    const technology = Array.from(articles.technology);
     console.log(technology);
-    
-})
-.then(response =>{
+
     bootstrap.forEach(item =>{
         const newBoot = createCard(item);
         cardContainer.appendChild(newBoot);
@@ -83,6 +79,9 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
         const newTech = createCard(item);
         cardContainer.appendChild(newTech);
     })
+
+
+      
 })
 .catch(error =>{
     console.log(error);
