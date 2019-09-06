@@ -18,16 +18,61 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
+let articles = [];
+let bootstrap = [];
+let javascript = [];
+let jquery = [];
+let node = [];
+let technology = [];
+
+
+
+
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(response =>{
     // console.log(response.data.articles);
-    const articles = response.data.articles;
+    articles = response.data.articles;
     console.log(articles);
+})
+.then(response =>{
+    bootstrap = Array.from(articles.bootstrap);
+    console.log(bootstrap);
+    javascript = Array.from(articles.javascript);
+    console.log(javascript);
+    jquery = Array.from(articles.jquery);
+    console.log(jquery);
+    node = Array.from(articles.node);
+    console.log(node);
+    technology = Array.from(articles.technology);
+    console.log(technology);
     
+})
+.then(response =>{
+    bootstrap.forEach(item =>{
+        const newBoot = createCard(item);
+        cardContainer.appendChild(newBoot);
+    })
+    javascript.forEach(item =>{
+        const newJS = createCard(item);
+        cardContainer.appendChild(newJS);
+    })
+    jquery.forEach(item =>{
+        const newJQ = createCard(item);
+        cardContainer.appendChild(newJQ);
+    })
+    node.forEach(item =>{
+        const newNode = createCard(item);
+        cardContainer.appendChild(newNode);
+    })
+    technology.forEach(item =>{
+        const newTech = createCard(item);
+        cardContainer.appendChild(newTech);
+    })
 })
 .catch(error =>{
     console.log(error);
 })
+
 
 
 const cardContainer = document.querySelector('.cards-container');
