@@ -36,10 +36,10 @@ function makeTab(topic){
     //add content
     tab.textContent = topic; //`${topic}`;
 
-    tab.addEventListener('click', e=>{
-        console.log(`tab clicked`);
-        tab.classList.toggle('active-tab');
-    })
+    // tab.addEventListener('click', e=>{
+    //     console.log(`tab clicked`);
+    //     tab.classList.toggle('active-tab');
+    // })
     //return
     return tab;
 
