@@ -24,15 +24,30 @@ let javascript = [];
 let jquery = [];
 let node = [];
 let technology = [];
-
+let topicArray = [];
 
 
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(response =>{
-    // console.log(response.data.articles);
+    console.log(response.data.articles);
     articles = response.data.articles;
     console.log(articles);
+
+
+    // articles.forEach(item =>{
+    //     topicArray.push(item);
+    // })
+    // console.log(topicArray);
+    // articles = Array.from(response.data.articles);
+    // console.log(articles);
+    // for (let i=0;i<articles.length;i++){
+    //     console.log(articles[i]);
+    //     topicArray.push(articles[i]);
+    //   }
+    //   console.log(topicArray);
+    //   return topicArray;
+      
 })
 .then(response =>{
     bootstrap = Array.from(articles.bootstrap);
