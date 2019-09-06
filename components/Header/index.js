@@ -34,7 +34,7 @@ function Header(){
 
     //set content
 
-    topSpan.textContent = 'March 28,2019';
+    topSpan.textContent = 'SMarch 28,2019';
     h1.textContent = 'Lambda Times';
     bottomSpan.textContent = '98°';
 
